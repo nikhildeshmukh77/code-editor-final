@@ -13,6 +13,14 @@ app.use((req, res, next) => {
     res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
 
+app.use(cors (
+    {
+        origin:["https://deploy-mern-1whq.vercle.app"],
+        methods:["POST", "GET"],
+        credentials:true
+    }
+))
+
 const userSocketMap = {};
 function getAllConnectedClients(roomId) {
     // Map
